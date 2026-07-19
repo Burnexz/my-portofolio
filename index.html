@@ -5,47 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZOKENT | Street-Style Web Dev</title>
     
-    <!-- Google Fonts untuk nuansa modern dan edgy -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- RESET UTAMA --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* --- PEDOMAN GAYA ZOKENT (Style Guide) --- */
         :root {
             --zokent-white: #ffffff;
-            --zokent-blue: #007bff; /* Biru elektrik cerah */
+            --zokent-blue: #007bff;
             --zokent-black: #000000;
             --zokent-grey: #e0e0e0;
             
-            --font-title: 'Anton', sans-serif; /* Font judul besar, bold, geometric */
-            --font-body: 'Inter', sans-serif;   /* Font isi modern dan bersih */
+            --font-title: 'Anton', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
-        /* --- GAYA TUBUH (Body) --- */
         body {
             background-color: var(--zokent-white);
             color: var(--zokent-black);
             font-family: var(--font-body);
             line-height: 1.6;
-            overflow-x: hidden; /* Mencegah scroll horizontal */
+            overflow-x: hidden;
         }
 
-        /* --- KONTENER UTAMA --- */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* --- HEADER & LOGO --- */
         header {
             padding: 50px 0;
             text-align: center;
@@ -53,7 +47,6 @@
             position: relative;
         }
 
-        /* Efek splatter dekoratif (dekorasi di balik logo) */
         header::after {
             content: '';
             position: absolute;
@@ -65,7 +58,7 @@
             background-image: radial-gradient(var(--zokent-black) 20%, transparent 20%), radial-gradient(var(--zokent-black) 20%, transparent 20%);
             background-size: 20px 20px, 20px 20px;
             background-position: 0 0, 10px 10px;
-            opacity: 0.1; /* Sangat tipis */
+            opacity: 0.1;
             border-radius: 50%;
             z-index: 1;
         }
@@ -74,9 +67,9 @@
             max-width: 250px;
             height: auto;
             position: relative;
-            z-index: 2; /* Di depan efek splatter */
-            border: 5px solid var(--zokent-black); /* Bingkai hitam tipis */
-            box-shadow: 10px 10px 0 var(--zokent-blue); /* Bayangan biru tebal */
+            z-index: 2;
+            border: 5px solid var(--zokent-black);
+            box-shadow: 10px 10px 0 var(--zokent-blue);
         }
 
         header h1 {
@@ -86,7 +79,7 @@
             letter-spacing: 2px;
             color: var(--zokent-black);
             margin-top: 30px;
-            text-shadow: 2px 2px 0 var(--zokent-blue); /* Bayangan teks biru elektrik */
+            text-shadow: 2px 2px 0 var(--zokent-blue);
         }
 
         header p {
@@ -97,7 +90,6 @@
             margin-top: 10px;
         }
 
-        /* --- BAGIAN (Sections) --- */
         section {
             padding: 80px 0;
         }
@@ -107,14 +99,13 @@
             font-size: 32px;
             text-transform: uppercase;
             margin-bottom: 40px;
-            border-left: 10px solid var(--zokent-blue); /* Garis biru tebal */
+            border-left: 10px solid var(--zokent-blue);
             padding-left: 20px;
             color: var(--zokent-black);
         }
 
-        /* --- BAGIAN TENTANG (About) --- */
         #tentang {
-            background-color: #f9f9f9; /* Latar abu-abu sangat muda */
+            background-color: #f9f9f9;
         }
 
         #tentang p {
@@ -124,7 +115,6 @@
             text-align: center;
         }
 
-        /* --- BAGIAN LAYANAN (Services) --- */
         .layanan-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -141,15 +131,14 @@
 
         .layanan-card:hover {
             transform: translateY(-5px);
-            box-shadow: 10px 10px 0 var(--zokent-blue); /* Bayangan biru tebal saat hover */
+            box-shadow: 10px 10px 0 var(--zokent-blue);
         }
 
-        /* Ikon Kustom Gaya Garis Zokent */
         .layanan-icon {
             font-size: 50px;
             margin-bottom: 20px;
             color: var(--zokent-blue);
-            font-family: var(--font-title); /* Gunakan font Anton untuk simbol */
+            font-family: var(--font-title);
         }
 
         .layanan-card h3 {
@@ -165,7 +154,6 @@
             color: #555;
         }
 
-        /* --- FOOTER --- */
         footer {
             padding: 40px 0;
             background-color: var(--zokent-black);
@@ -175,10 +163,9 @@
         }
 
         footer p::before {
-            content: '⚡ '; /* Ikon listrik kecil */
+            content: '⚡ ';
         }
 
-        /* --- RESPONSIVITAS MOBIL --- */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 40px;
@@ -190,26 +177,17 @@
                 font-size: 26px;
             }
         }
-
     </style>
 </head>
 <body>
 
-    <!-- CONTAINER UTAMA -->
     <div class="container">
-
-        <!-- HEADER -->
         <header>
-            <!-- MASUKKAN GAMBAR LOGO ANDA DISINI -->
-            <!-- Pastikan Anda sudah mengunggah file gambar asli Anda (misal: '1000169388.jpg') -->
-            <!-- Ubah '1000169388.jpg' di bawah ini menjadi nama file asli Anda jika berbeda -->
             <img src="1000169388.jpg" alt="Zokent Logo" class="logo-image">
-            
             <h1>ZOKENT</h1>
             <p>Street-Style Web Developer</p>
         </header>
 
-        <!-- SEKSI TENTANG -->
         <section id="tentang">
             <div class="container">
                 <h2 class="section-title">Tentang Saya</h2>
@@ -217,45 +195,34 @@
             </div>
         </section>
 
-        <!-- SEKSI LAYANAN -->
         <section id="layanan">
             <div class="container">
                 <h2 class="section-title">Layanan Keahlian</h2>
-                
                 <div class="layanan-grid">
-                    
-                    <!-- Kartu Layanan 1 -->
                     <div class="layanan-card">
                         <div class="layanan-icon">01</div>
                         <h3>Web Profil</h3>
                         <p>Pembuatan Website Profil Perusahaan (Company Profile) yang menarik dan profesional.</p>
                     </div>
-
-                    <!-- Kartu Layanan 2 -->
                     <div class="layanan-card">
                         <div class="layanan-icon">02</div>
                         <h3>Web App</h3>
                         <p>Sistem Aplikasi Web Custom (Kasir, Inventaris, E-commerce, dll) sesuai kebutuhan Anda.</p>
                     </div>
-
-                    <!-- Kartu Layanan 3 -->
                     <div class="layanan-card">
                         <div class="layanan-icon">03</div>
                         <h3>Maint.</h3>
                         <p>Pemeliharaan, pembaruan konten, dan perbaikan bug website yang sudah ada.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <div class="container">
                 <p>&copy; 2026 Zokent. All rights reserved.</p>
             </div>
         </footer>
-
     </div>
 
 </body>
