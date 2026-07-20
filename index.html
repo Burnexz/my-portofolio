@@ -3,227 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZOKENT | Street-Style Web Dev</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --zokent-white: #ffffff;
-            --zokent-blue: #007bff;
-            --zokent-black: #000000;
-            --zokent-grey: #e0e0e0;
-            
-            --font-title: 'Anton', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--zokent-white);
-            color: var(--zokent-black);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            padding: 50px 0;
-            text-align: center;
-            background-color: var(--zokent-white);
-            position: relative;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 300px;
-            background-image: radial-gradient(var(--zokent-black) 20%, transparent 20%), radial-gradient(var(--zokent-black) 20%, transparent 20%);
-            background-size: 20px 20px, 20px 20px;
-            background-position: 0 0, 10px 10px;
-            opacity: 0.1;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .logo-image {
-            max-width: 250px;
-            height: auto;
-            position: relative;
-            z-index: 2;
-            border: 5px solid var(--zokent-black);
-            box-shadow: 10px 10px 0 var(--zokent-blue);
-        }
-
-        header h1 {
-            font-family: var(--font-title);
-            font-size: 60px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--zokent-black);
-            margin-top: 30px;
-            text-shadow: 2px 2px 0 var(--zokent-blue);
-        }
-
-        header p {
-            font-weight: 700;
-            color: var(--zokent-blue);
-            text-transform: uppercase;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-family: var(--font-title);
-            font-size: 32px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            border-left: 10px solid var(--zokent-blue);
-            padding-left: 20px;
-            color: var(--zokent-black);
-        }
-
-        #tentang {
-            background-color: #f9f9f9;
-        }
-
-        #tentang p {
-            font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .layanan-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .layanan-card {
-            background-color: var(--zokent-white);
-            border: 3px solid var(--zokent-black);
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .layanan-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 10px 10px 0 var(--zokent-blue);
-        }
-
-        .layanan-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            color: var(--zokent-blue);
-            font-family: var(--font-title);
-        }
-
-        .layanan-card h3 {
-            font-family: var(--font-title);
-            text-transform: uppercase;
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--zokent-black);
-        }
-
-        .layanan-card p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        footer {
-            padding: 40px 0;
-            background-color: var(--zokent-black);
-            color: var(--zokent-white);
-            text-align: center;
-            font-size: 12px;
-        }
-
-        footer p::before {
-            content: '⚡ ';
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 40px;
-            }
-            .logo-image {
-                max-width: 180px;
-            }
-            .section-title {
-                font-size: 26px;
-            }
-        }
-    </style>
+    <title>ZOKENT GROUP | Ruko Multi-Layanan Terpadu Jogosimo</title>
+    <!-- Tailwind CSS untuk desain modern dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <div class="container">
-        <header>
-            <img src="1000169388.jpg" alt="Zokent Logo" class="logo-image">
-            <h1>ZOKENT</h1>
-            <p>Street-Style Web Developer</p>
-        </header>
+    <!-- HERO SECTION (Spanduk Utama) -->
+    <header class="bg-gradient-to-r py-20 px-4 text-center text-white" style="background-image: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold tracking-tight sm:text-5xl uppercase tracking-wider text-cyan-400">ZOKENT</h1>
+            <p class="mt-2 text-xl text-yellow-300 font-medium tracking-wide">Toko Kelontong Modern • Bengkel Motor • Servis AC & Kulkas</p>
+            <div class="w-24 h-1 bg-cyan-500 mx-auto my-4 rounded"></div>
+            <p class="mt-4 text-gray-200 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                Solusi Belanja Kebutuhan Harian & Layanan Teknik Terpadu di Jogosimo. Kami hadir memberikan pelayanan profesional, transparan, dan terpercaya untuk Anda dan keluarga.
+            </p>
+        </div>
+    </header>
 
-        <section id="tentang">
-            <div class="container">
-                <h2 class="section-title">Tentang Saya</h2>
-                <p>Saya fokus membangun aplikasi web yang bersih, responsif, dan siap membantu digitalisasi bisnis atau UMKM Anda. Desain saya fungsional, modern, dan memiliki sentuhan 'karakter'.</p>
-            </div>
-        </section>
-
-        <section id="layanan">
-            <div class="container">
-                <h2 class="section-title">Layanan Keahlian</h2>
-                <div class="layanan-grid">
-                    <div class="layanan-card">
-                        <div class="layanan-icon">01</div>
-                        <h3>Web Profil</h3>
-                        <p>Pembuatan Website Profil Perusahaan (Company Profile) yang menarik dan profesional.</p>
-                    </div>
-                    <div class="layanan-card">
-                        <div class="layanan-icon">02</div>
-                        <h3>Web App</h3>
-                        <p>Sistem Aplikasi Web Custom (Kasir, Inventaris, E-commerce, dll) sesuai kebutuhan Anda.</p>
-                    </div>
-                    <div class="layanan-card">
-                        <div class="layanan-icon">03</div>
-                        <h3>Maint.</h3>
-                        <p>Pemeliharaan, pembaruan konten, dan perbaikan bug website yang sudah ada.</p>
-                    </div>
+    <!-- LAYANAN UTAMA (3 PILAR BISNIS ZOKENT) -->
+    <main class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-4 uppercase tracking-wide">Unit Bisnis Kami</h2>
+        <p class="text-center text-gray-500 text-sm max-w-md mx-auto mb-12">Tiga layanan terintegrasi dalam satu lokasi ruko untuk kemudahan aktivitas harian Anda.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- PILAR 1: SRC ZOKENT -->
+            <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300">
+                <div class="p-6">
+                    <div class="text-3xl mb-4">🏪</div>
+                    <h3 class="text-xl font-bold text-red-600 mb-2">SRC Zokent</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Toko kelontong retail modern mitra belanja dekat dan hemat untuk kebutuhan pokok harian keluarga Anda. Menyediakan produk berkualitas dengan penataan ruangan yang rapi, bersih, dan nyaman.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-1.5 list-disc list-inside border-t pt-3 border-gray-100">
+                        <li>Sembako & Kebutuhan Rumah Tangga</li>
+                        <li>Produk Segar & Minuman Dingin</li>
+                        <li>Kemudahan Transaksi Digital / QRIS</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-red-50/50 border-t border-red-100">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-red-600 block mb-1">Retail Terpercaya</span>
+                    <p class="text-sm font-medium text-gray-900">Belanja Dekat & Hemat</p>
                 </div>
             </div>
+
+            <!-- PILAR 2: ZOKENT MOTOR -->
+            <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300">
+                <div class="p-6">
+                    <div class="text-3xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Zokent Motor</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Bengkel perawatan motor andalan untuk menjaga performa kendaraan Anda tetap prima. Melayani perawatan mesin berkala, analisis gangguan sistem kelistrikan, pembersihan karburator, hingga perbaikan kaki-kaki motor.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-1.5 list-disc list-inside border-t pt-3 border-gray-100">
+                        <li>Servis Berkala & Tune-Up</li>
+                        <li>Pembersihan & Pengaturan Karburator</li>
+                        <li>Perbaikan Kelistrikan & Ganti Bearing</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-100 border-t border-gray-200">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-600 block mb-1">Spesialisasi</span>
+                    <p class="text-sm font-medium text-gray-900">Perawatan Motor Bebek & Matik</p>
+                </div>
+            </div>
+
+            <!-- PILAR 3: ZOKENT COOLING SERVICE -->
+            <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300">
+                <div class="p-6">
+                    <div class="text-3xl mb-4">❄️</div>
+                    <h3 class="text-xl font-bold text-blue-600 mb-2">Zokent Cooling Service</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Jasa teknis profesional untuk mengembalikan performa optimal sistem pendingin Anda. Menangani perawatan AC Split rutin, restorasi kebocoran sirkulasi freon, serta penggantian sparepart evaporator/kompresor kulkas.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-1.5 list-disc list-inside border-t pt-3 border-gray-100">
+                        <li>Cuci AC Berkala & Isi Ulang Freon</li>
+                        <li>Flushing Sirkuit Pipa & Vakum Sistem (SOP)</li>
+                        <li>Restorasi Kebocoran Kulkas & Showcase</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-blue-50/50 border-t border-blue-100">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 block mb-1">Teknik Profesional</span>
+                    <p class="text-sm font-medium text-gray-900">Pengerjaan Transparan & Bergaransi</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LOKASI OPERASIONAL RUKO -->
+        <section class="mt-20 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">📍 Lokasi Ruko Terpadu</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Seluruh unit layanan Zokent Group beroperasi secara terintegrasi di kompleks ruko kami. Anda bisa berbelanja di <strong>SRC Zokent</strong> atau menitipkan kendaraan Anda di <strong>Zokent Motor</strong> dengan nyaman di satu area yang sama.
+                </p>
+                <div class="space-y-2 text-sm text-gray-700">
+                    <p><strong>Alamat:</strong> Area Ruko Jogosimo, Kec. Klirong, Kab. Kebumen, Jawa Tengah</p>
+                    <p><strong>Jam Operasional:</strong> Setiap Hari | 08.00 - 17.00 WIB</p>
+                </div>
+            </div>
+            <!-- Placeholder Peta Google Maps -->
+            <div class="bg-gray-100 h-48 rounded-lg flex flex-col items-center justify-center text-gray-400 text-sm border-2 border-dashed border-gray-200 p-4 text-center">
+                <span>📍 Area Integrasi Ruko Zokent</span>
+                <span class="text-xs text-gray-400 mt-1">Jogosimo, Klirong, Kebumen</span>
+            </div>
         </section>
 
-        <footer>
-            <div class="container">
-                <p>&copy; 2026 Zokent. All rights reserved.</p>
+        <!-- HUBUNGI KAMI / CALL TO ACTION -->
+        <section class="mt-16 text-center bg-gray-900 text-white p-8 rounded-2xl shadow-md">
+            <h2 class="text-2xl font-bold mb-2">Butuh Layanan Cepat atau Konsultasi Kerusakan?</h2>
+            <p class="text-gray-400 text-sm max-w-md mx-auto mb-6">Silakan hubungi kami untuk menjadwalkan servis AC rumah, perbaikan motor, atau menanyakan ketersediaan produk di toko.</p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <!-- Ganti nomor di bawah ini dengan nomor WhatsApp aktif Anda -->
+                <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-6 py-3 rounded-lg transition duration-200 shadow-md">
+                    Hubungi Zokent via WhatsApp
+                </a>
             </div>
-        </footer>
-    </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-xs text-gray-400 border-t border-gray-200 bg-gray-50">
+        &copy; 2026 Zokent Group. All Rights Reserved. Hosted on GitHub Pages.
+    </footer>
 
 </body>
 </html>
