@@ -629,97 +629,75 @@
       let daftarBelanja = "";
       let totalHarga = 0;
 
-      keranjang.forEach((item, i) => {
+        
+
+    keranjang.forEach((item, i) => {
         const subtotal = item.harga * item.qty;
         totalHarga += subtotal;
-        daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
-      });
+        daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+    });
 
-              // Tombol Checkout WhatsApp
-document.getElementById('btn-checkout-wa').addEventListener('click', function() {
-    const namaPembeli = document.getElementById('buyer-name').value.trim();
-    const alamatPembeli = document.getElementById('buyer-address').value.trim();
+    // Tombol Checkout WhatsApp (Hanya 1 yang bersih)
+    document.getElementById('btn-checkout-wa').addEventListener('click', function() {
+        const namaPembeli = document.getElementById('buyer-name').value.trim();
+        const alamatPembeli = document.getElementById('buyer-address').value.trim();
 
-    if (!namaPembeli || !alamatPembeli) {
-        alert('Mohon isi Nama dan Alamat pengiriman terlebih dahulu!');
-        return;
+        if (!namaPembeli || !alamatPembeli) {
+            alert('Mohon isi Nama dan Alamat pengiriman terlebih dahulu!');
+            return;
+        }
+
+        const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+        let paymentMethod = selectedPayment ? selectedPayment.value : 'COD';
+
+        let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
+                        `👤 *Nama:* ${namaPembeli}\n` +
+                        `📍 *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
+                        `💳 *Pembayaran:* ${paymentMethod}\n` +
+                        `📦 *Daftar Pesanan:*\n${daftarBelanja}\n` +
+                        `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+
+        let pesanWA = encodeURIComponent(teksPesan);
+        window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
+    });
+
+    // Fungsi untuk mengubah warna border input secara dinamis
+    function setupInputValidation(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        function updateBorder() {
+            if (el.value.trim() === "") {
+                el.classList.remove('border-emerald-500', 'focus:ring-emerald-500');
+                el.classList.add('border-red-500', 'focus:ring-red-500');
+            } else {
+                el.classList.remove('border-red-500', 'focus:ring-red-500');
+                el.classList.add('border-emerald-500', 'focus:ring-emerald-500');
+            }
+        }
+
+        el.addEventListener('input', updateBorder);
+        updateBorder(); // Cek kondisi saat halaman dimuat
     }
 
-    let paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    // Jalankan untuk kolom nama dan alamat
+    setupInputValidation('buyer-name');
+    setupInputValidation('buyer-address');
 
-    let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
-                    `👤 *Nama:* ${namaPembeli}\n` +
-                    `📍 *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
-                    `💳 *Pembayaran:* ${paymentMethod}\n` +
-                    `📦 *Daftar Pesanan:*\n${daftarBelanja}\n` +
-                    `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+    // Fungsi untuk memunculkan/menyembunyikan gambar QRIS
+    function toggleQris() {
+        const selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+        const boxQris = document.getElementById('box-qris');
+        if (!selectedMethod || !boxQris) return;
 
-    let pesanWA = encodeURIComponent(teksPesan);
-    window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
-});
-
-      
-      
-    }// Fungsi untuk mengubah warna border input secara dinamis
-function setupInputValidation(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    function updateBorder() {
-        if (el.value.trim() === "") {
-            el.classList.remove('border-emerald-500', 'focus:ring-emerald-500');
-            el.classList.add('border-red-500', 'focus:ring-red-500');
+        if (selectedMethod.value === "QRIS / Transfer Bank") {
+            boxQris.classList.remove('hidden');
         } else {
-            el.classList.remove('border-red-500', 'focus:ring-red-500');
-            el.classList.add('border-emerald-500', 'focus:ring-emerald-500');
+            boxQris.classList.add('hidden');
         }
     }
+      
 
-    el.addEventListener('input', updateBorder);
-    updateBorder(); // Cek kondisi saat halaman dimuat
-}
-
-// Jalankan untuk kolom nama dan alamat
-setupInputValidation('buyer-name');
-setupInputValidation('buyer-address');
-// Fungsi untuk memunculkan/menyembunyikan gambar QRIS
-function toggleQris() {
-    const selectedMethod = document.querySelector('input[name="payment-method"]:checked');
-    const boxQris = document.getElementById('box-qris');
-    if (!selectedMethod || !boxQris) return;
-
-    if (selectedMethod.value === "QRIS / Transfer Bank") {
-        boxQris.classList.remove('hidden');
-    } else {
-        boxQris.classList.add('hidden');
-    }
-}
-  // Tombol Checkout WhatsApp
-document.getElementById('btn-checkout-wa').addEventListener('click', function() {
-    const namaPembeli = document.getElementById('buyer-name').value.trim();
-    const alamatPembeli = document.getElementById('buyer-address').value.trim();
-
-    if (!namaPembeli || !alamatPembeli) {
-        alert('Mohon isi Nama dan Alamat pengiriman terlebih dahulu!');
-        return;
-    }
-
-    const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
-    let paymentMethod = selectedPayment ? selectedPayment.value : 'COD';
-
-    let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
-                    `👤 *Nama:* ${namaPembeli}\n` +
-                    `📍 *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
-                    `💳 *Pembayaran:* ${paymentMethod}\n` +
-                    `📦 *Daftar Pesanan:*\n${daftarBelanja}\n` +
-                    `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
-
-    let urlWA = `https://wa.me/6283863000922?text=` + encodeURI(teksPesan);
-    window.open(urlWA, '_blank');
-});
-    
-    
-    
   </script>
 </body>
 </html>
