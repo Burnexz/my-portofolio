@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu & Katalog Toko - SRC Zokent</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- NAVBAR / HEADER -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-red-600 flex items-center gap-1">
+        ← Kembali ke Beranda
+      </a>
+      <span class="font-bold text-red-600 text-lg">🛒 SRC Zokent</span>
+    </div>
+  </header>
+
+  <!-- BANNER TOKO -->
+  <section class="bg-red-600 text-white py-10 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="bg-red-700 text-red-100 text-xs font-bold uppercase px-3 py-1 rounded-full">Toko Kelontong Modern</span>
+      <h1 class="text-3xl font-bold mt-3 mb-2">SRC Zokent Jogosimo</h1>
+      <p class="text-red-100 text-sm max-w-xl mx-auto">
+        Belanja sembako & kebutuhan harian dekat, lengkap, dan hemat. Menerima pembayaran Cash & QRIS.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTAMA: KATALOG & MENU TOKO -->
+  <main class="max-w-4xl mx-auto px-4 py-10">
+
+    <!-- FITUR PESAN ANTAR -->
+    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <h3 class="font-bold text-emerald-900 text-lg">🛵 Layanan Pesan-Antar Lokal</h3>
+        <p class="text-xs text-emerald-700 mt-1">Khusus area Jogosimo & sekitarnya, pesan kebutuhan dapur via WhatsApp langsung kami antar.</p>
+      </div>
+      <a href="https://wa.me/6281234567890?text=Halo%20SRC%20Zokent,%20saya%20mau%20pesan%20sembako" 
+         target="_blank" 
+         class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 whitespace-nowrap">
+        💬 Pesan via WhatsApp
+      </a>
+    </div>
+
+    <!-- KATALOG KATEGORI PRODUK -->
+    <h2 class="text-xl font-bold text-gray-900 mb-6">Kategori Produk Tersedia</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <!-- Kategori 1 -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="text-3xl mb-3">🌾</div>
+        <h3 class="font-bold text-gray-900 mb-1">Sembako & Beras</h3>
+        <p class="text-xs text-gray-500 mb-3">Beras pulen, minyak goreng, gula pasir, telur segar, & tepung.</p>
+        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Stok Selalu Ready</span>
+      </div>
+
+      <!-- Kategori 2 -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="text-3xl mb-3">🥤</div>
+        <h3 class="font-bold text-gray-900 mb-1">Minuman Segar & Dingin</h3>
+        <p class="text-xs text-gray-500 mb-3">Air mineral, kopi kemasan, teh manis, susu, & es krim.</p>
+        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Tersedia di Showroom Dingin</span>
+      </div>
+
+      <!-- Kategori 3 -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="text-3xl mb-3">🧂</div>
+        <h3 class="font-bold text-gray-900 mb-1">Bumbu Dapur & Masak</h3>
+        <p class="text-xs text-gray-500 mb-3">Kecap, saus, penyedap rasa, garam, mi instan, & bumbu racik.</p>
+        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Lengkap</span>
+      </div>
+
+      <!-- Kategori 4 -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="text-3xl mb-3">🧼</div>
+        <h3 class="font-bold text-gray-900 mb-1">Kebutuhan Mandi & Cuci</h3>
+        <p class="text-xs text-gray-500 mb-3">Deterjen, sabun mandi, shampoo, pasta gigi, & pembersih lantai.</p>
+        <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded">Kemasan Hemat</span>
+      </div>
+
+      <!-- Kategori 5 -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="text-3xl mb-3">🍿</div>
+        <h3 class="font-bold text-gray-900 mb-1">Snack & Jajanan Anak</h3>
+        <p class="text-xs text-gray-500 mb-3">Biskuit, keripik, cokelat, permen, & jajanan ringan harian.</p>
+        <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded">Favorit Keluarga</span>
+      </div>
+
+      <!-- Kategori 6 -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="text-3xl mb-3">💳</div>
+        <h3 class="font-bold text-gray-900 mb-1">Pulsa & Pembayaran</h3>
+        <p class="text-xs text-gray-500 mb-3">Isi ulang pulsa, kuota data, token PLN, & top up e-wallet.</p>
+        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Proses Cepat</span>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-gray-100 py-6 text-center text-xs text-gray-500">
+    <p>© 2026 SRC Zokent Jogosimo. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
