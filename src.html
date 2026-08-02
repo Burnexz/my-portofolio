@@ -444,37 +444,6 @@
     }
         
 
-      const namaPembeli = document.getElementById('buyer-name').value.trim();
-      const alamatPembeli = document.getElementById('buyer-address').value.trim();
-      
-      // Ambil metode pembayaran yang dipilih
-      const metodePembayaran = document.querySelector('input[name="payment-method"]:checked').value;
-
-      if (!namaPembeli) {
-        alert("Silakan isi nama Anda terlebih dahulu.");
-        return;
-      }
-
-      let daftarBelanja = "";
-      let totalHarga = 0;
-
-      keranjang.forEach((item, i) => {
-        const subtotal = item.harga * item.qty;
-        totalHarga += subtotal;
-        daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
-      });
-
-      // Format pesan WhatsApp termasuk info pembayaran
-      const pesanWA = `Halo *SRC Zokent*, saya mau pesan barang:%0A%0A` +
-                      `👤 *Nama:* ${encodeURIComponent(namaPembeli)}%0A` +
-                      `📍 *Alamat/Catatan:* ${encodeURIComponent(alamatPembeli || '-')}%0A` +
-                      `💳 *Pembayaran:* ${encodeURIComponent(metodePembayaran)}%0A%0A` +
-                      `📦 *Daftar Pesanan:*%0A${daftarBelanja}%0A` +
-                      `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
-
-      window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
-    }
-
 
         <button type="button" id="btn-checkout-wa" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 rounded-xl transition-all shadow-md flex justify-center items-center gap-2">
           💬 Pesan Sekarang via WhatsApp
