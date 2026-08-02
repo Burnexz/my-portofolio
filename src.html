@@ -635,14 +635,29 @@
         daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
       });
 
-              let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
-                    `\u{1F464} *Nama:* ${namaPembeli}\n` +
-                    `\u{1F4CD} *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
-                    `\u{1F4E6} *Daftar Pesanan:*%0A${daftarBelanja}\n` +
-                    `\u{1F4B0} *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+              // Tombol Checkout WhatsApp
+document.getElementById('btn-checkout-wa').addEventListener('click', function() {
+    const namaPembeli = document.getElementById('buyer-name').value.trim();
+    const alamatPembeli = document.getElementById('buyer-address').value.trim();
+
+    if (!namaPembeli || !alamatPembeli) {
+        alert('Mohon isi Nama dan Alamat pengiriman terlebih dahulu!');
+        return;
+    }
+
+    let paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+    let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
+                    `👤 *Nama:* ${namaPembeli}\n` +
+                    `📍 *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
+                    `💳 *Pembayaran:* ${paymentMethod}\n` +
+                    `📦 *Daftar Pesanan:*\n${daftarBelanja}\n` +
+                    `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
 
     let pesanWA = encodeURIComponent(teksPesan);
     window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
+});
+
       
       
     }// Fungsi untuk mengubah warna border input secara dinamis
@@ -689,18 +704,20 @@ document.getElementById('btn-checkout-wa').addEventListener('click', function() 
         return;
     }
 
-    let paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    // Mengambil pilihan metode pembayaran (COD / QRIS)
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
 
     let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
-                    `\u{1F464} *Nama:* ${namaPembeli}\n` +
-                    `\u{1F4CD} *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
-                    `\u{1F4B3} *Pembayaran:* ${paymentMethod}\n` +
-                    `\u{1F4E6} *Daftar Pesanan:*%0A${daftarBelanja}\n` +
-                    `\u{1F4B0} *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+                    `👤 *Nama:* ${namaPembeli}\n` +
+                    `📍 *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
+                    `💳 *Pembayaran:* ${paymentMethod}\n` +
+                    `📦 *Daftar Pesanan:*\n${daftarBelanja}\n` +
+                    `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
 
     let pesanWA = encodeURIComponent(teksPesan);
     window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
 });
+
     
   </script>
 </body>
