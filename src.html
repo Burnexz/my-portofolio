@@ -704,8 +704,8 @@ document.getElementById('btn-checkout-wa').addEventListener('click', function() 
         return;
     }
 
-    // Mengambil pilihan metode pembayaran (COD / QRIS)
-    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+    let paymentMethod = selectedPayment ? selectedPayment.value : 'COD';
 
     let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
                     `👤 *Nama:* ${namaPembeli}\n` +
@@ -714,10 +714,11 @@ document.getElementById('btn-checkout-wa').addEventListener('click', function() 
                     `📦 *Daftar Pesanan:*\n${daftarBelanja}\n` +
                     `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
 
-    let pesanWA = encodeURIComponent(teksPesan);
-    window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
+    let urlWA = `https://wa.me/6283863000922?text=` + encodeURI(teksPesan);
+    window.open(urlWA, '_blank');
 });
-
+    
+    
     
   </script>
 </body>
