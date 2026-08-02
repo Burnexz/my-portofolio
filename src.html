@@ -3,151 +3,312 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu & Katalog Toko - SRC Zokent</title>
+  <title>SRC Zokent Jogosimo - Belanja Online</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-[#f8fafc] text-slate-800 font-sans pb-28">
 
-  <!-- NAVBAR / HEADER -->
-  <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-red-600 flex items-center gap-1">
+  <!-- NAVBAR HEADER -->
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-40">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xs font-semibold text-slate-600 hover:text-red-600 flex items-center gap-1">
         ← Kembali ke Beranda
       </a>
-      <span class="font-bold text-red-600 text-lg">🛒 SRC Zokent</span>
+      
+      <!-- TOMBOL KERANJANG DI HEADER -->
+      <button onclick="bukaKeranjang()" class="bg-red-50 hover:bg-red-100 border border-red-200 text-red-600 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all">
+        🛒 <span class="font-bold">SRC Zokent</span>
+        <span id="cart-count" class="bg-red-600 text-white px-1.5 py-0.5 rounded-full text-[10px] ml-1">0</span>
+      </button>
     </div>
   </header>
 
-  <!-- BANNER TOKO SRC (Dengan Motif Khas SRC Sisi Kiri & Kanan) -->
-  <section class="relative bg-red-600 text-white py-12 px-4 shadow-md overflow-hidden">
-    
-    <!-- Motif Anyaman SRC Sisi Kiri -->
-    <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 pointer-events-none opacity-85">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="src-motif-left" width="28" height="28" patternUnits="userSpaceOnUse">
-            <rect width="28" height="28" fill="#dc2626"/>
-            <path d="M0 14 L14 0 L28 14 L14 28 Z" fill="none" stroke="#ffffff" stroke-width="4"/>
-            <path d="M14 14 L28 0 M0 28 L14 14" stroke="#ffffff" stroke-width="4"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#src-motif-left)"/>
-      </svg>
-    </div>
-
-    <!-- Motif Anyaman SRC Sisi Kanan -->
-    <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 pointer-events-none opacity-85">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="src-motif-right" width="28" height="28" patternUnits="userSpaceOnUse">
-            <rect width="28" height="28" fill="#dc2626"/>
-            <path d="M0 14 L14 0 L28 14 L14 28 Z" fill="none" stroke="#ffffff" stroke-width="4"/>
-            <path d="M14 14 L28 0 M0 28 L14 14" stroke="#ffffff" stroke-width="4"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#src-motif-right)"/>
-      </svg>
-    </div>
-
-    <!-- Isi Teks Banner Utama -->
-    <div class="max-w-4xl mx-auto text-center relative z-10 px-8 sm:px-16">
-      
-      <!-- Badge Kuning -->
-      <div class="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 text-xs font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow-sm mb-3">
-        <span>🏪</span>
-        <span>MITRA SRC • TOKO KELONTONG MODERN</span>
-      </div>
-
-      <!-- Judul -->
-      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-1 mb-2">
+  <!-- BANNER UTAMA SRC ZOKENT JOGOSIMO -->
+  <section class="bg-gradient-to-r from-red-600 to-red-700 text-white py-8 px-4 text-center relative overflow-hidden">
+    <div class="max-w-2xl mx-auto space-y-2 relative z-10">
+      <span class="inline-block bg-amber-400 text-red-950 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+        ⚡ MITRA SRC - TOKO KELONTONG MODERN
+      </span>
+      <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
         SRC Zokent Jogosimo
       </h1>
-
-      <!-- Deskripsi -->
-      <p class="text-red-100 text-sm md:text-base max-w-xl mx-auto font-medium">
-        Belanja sembako & kebutuhan harian dekat, lengkap, dan hemat. Menerima pembayaran <span class="text-yellow-300 font-bold">Tunai (Cash)</span> & <span class="text-yellow-300 font-bold">QRIS</span>.
+      <p class="text-white/90 text-xs md:text-sm max-w-lg mx-auto leading-relaxed">
+        Belanja sembako & kebutuhan harian dekat, lengkap, dan hemat. Menerima pembayaran <strong class="text-amber-300">Tunai (Cash)</strong> & <strong class="text-amber-300">QRIS</strong>.
       </p>
-
     </div>
   </section>
 
-  <!-- UTAMA: KATALOG & MENU TOKO -->
-  <main class="max-w-4xl mx-auto px-4 py-10">
+  <main class="max-w-4xl mx-auto px-4 py-6 space-y-6">
 
-    <!-- FITUR PESAN ANTAR (Kotak Hijau) -->
-    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>
-        <h3 class="font-bold text-emerald-900 text-lg">🛵 Layanan Pesan-Antar Lokal</h3>
-        <p class="text-xs text-emerald-700 mt-1">Khusus area Jogosimo & sekitarnya, pesan kebutuhan dapur via WhatsApp langsung kami antar.</p>
+    <!-- BOX LAYANAN PESAN-ANTAR LOKAL -->
+    <div class="bg-emerald-50 border border-emerald-200/80 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-3 shadow-sm">
+      <div class="space-y-0.5 text-center md:text-left">
+        <h3 class="font-bold text-emerald-900 text-xs md:text-sm flex items-center justify-center md:justify-start gap-1.5">
+          🛵 Layanan Pesan-Antar Lokal
+        </h3>
+        <p class="text-[11px] text-emerald-700">Khusus area Jogosimo & sekitarnya, pesan kebutuhan dapur via WhatsApp langsung kami antar.</p>
       </div>
-      <a href="https://wa.me/6283863000922?text=Halo%20SRC%20Zokent,%20saya%20mau%20pesan%20sembako" 
+      <a href="https://wa.me/6283863000922?text=Halo%20SRC%20Zokent,%20saya%20mau%20pesan%20antar%20kebutuhan%20toko" 
          target="_blank" 
-         class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 whitespace-nowrap">
+         class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-sm flex items-center gap-1.5">
         💬 Pesan via WhatsApp
       </a>
     </div>
 
-    <!-- KATALOG KATEGORI PRODUK -->
-    <h2 class="text-xl font-bold text-gray-900 mb-6">Kategori Produk Tersedia</h2>
+    <!-- KATALOG PRODUK -->
+    <div>
+      <h3 class="text-sm font-extrabold text-slate-900 mb-4 flex items-center gap-2">
+        📦 Produk & Sembako Tersedia
+      </h3>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- GRID PRODUK DENGAN TOMBOL KERANJANG -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
 
-      <!-- Kategori 1 -->
-      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-        <div class="text-3xl mb-3">🌾</div>
-        <h3 class="font-bold text-gray-900 mb-1">Sembako & Beras</h3>
-        <p class="text-xs text-gray-500 mb-3">Beras pulen, minyak goreng, gula pasir, telur segar, & tepung.</p>
-        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Stok Selalu Ready</span>
+        <!-- Kategori 1: Sembako -->
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="w-full h-24 bg-red-50 rounded-xl mb-2 flex items-center justify-center text-3xl">🌾</div>
+            <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">Sembako</span>
+            <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Beras Premium (5 kg)</h4>
+            <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 72.000</p>
+          </div>
+          <button onclick="tambahKeKeranjang('Beras Premium (5 kg)', 72000)" 
+                  class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">
+            + Keranjang
+          </button>
+        </div>
+
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="w-full h-24 bg-red-50 rounded-xl mb-2 flex items-center justify-center text-3xl">🧴</div>
+            <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">Sembako</span>
+            <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Minyak Goreng Kita (1L)</h4>
+            <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 16.000</p>
+          </div>
+          <button onclick="tambahKeKeranjang('Minyak Goreng Kita (1L)', 16000)" 
+                  class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">
+            + Keranjang
+          </button>
+        </div>
+
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="w-full h-24 bg-red-50 rounded-xl mb-2 flex items-center justify-center text-3xl">🥚</div>
+            <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">Sembako</span>
+            <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Telur Ayam Negeri (1 kg)</h4>
+            <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 28.000</p>
+          </div>
+          <button onclick="tambahKeKeranjang('Telur Ayam Negeri (1 kg)', 28000)" 
+                  class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">
+            + Keranjang
+          </button>
+        </div>
+
+        <!-- Kategori 2: Minuman -->
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="w-full h-24 bg-blue-50 rounded-xl mb-2 flex items-center justify-center text-3xl">🥤</div>
+            <span class="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Minuman</span>
+            <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Air Mineral Botol (600ml)</h4>
+            <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 5.000</p>
+          </div>
+          <button onclick="tambahKeKeranjang('Air Mineral Botol (600ml)', 5000)" 
+                  class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">
+            + Keranjang
+          </button>
+        </div>
+
+        <!-- Kategori 3: Bumbu Dapur -->
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="w-full h-24 bg-amber-50 rounded-xl mb-2 flex items-center justify-center text-3xl">🧂</div>
+            <span class="text-[9px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">Bumbu Dapur</span>
+            <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Gula Pasir Gulaku (1 kg)</h4>
+            <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 18.000</p>
+          </div>
+          <button onclick="tambahKeKeranjang('Gula Pasir Gulaku (1 kg)', 18000)" 
+                  class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">
+            + Keranjang
+          </button>
+        </div>
+
+        <!-- Kategori 4: Mandi & Cuci -->
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="w-full h-24 bg-purple-50 rounded-xl mb-2 flex items-center justify-center text-3xl">🧼</div>
+            <span class="text-[9px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">Cuci & Mandi</span>
+            <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Deterjen Rinso Molto 770g</h4>
+            <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 22.500</p>
+          </div>
+          <button onclick="tambahKeKeranjang('Deterjen Rinso Molto 770g', 22500)" 
+                  class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">
+            + Keranjang
+          </button>
+        </div>
+
       </div>
-
-      <!-- Kategori 2 -->
-      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-        <div class="text-3xl mb-3">🥤</div>
-        <h3 class="font-bold text-gray-900 mb-1">Minuman Segar & Dingin</h3>
-        <p class="text-xs text-gray-500 mb-3">Air mineral, kopi kemasan, teh manis, susu, & es krim.</p>
-        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Tersedia di Showroom Dingin</span>
-      </div>
-
-      <!-- Kategori 3 -->
-      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-        <div class="text-3xl mb-3">🧂</div>
-        <h3 class="font-bold text-gray-900 mb-1">Bumbu Dapur & Masak</h3>
-        <p class="text-xs text-gray-500 mb-3">Kecap, saus, penyedap rasa, garam, mi instan, & bumbu racik.</p>
-        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Lengkap</span>
-      </div>
-
-      <!-- Kategori 4 -->
-      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-        <div class="text-3xl mb-3">🧼</div>
-        <h3 class="font-bold text-gray-900 mb-1">Kebutuhan Mandi & Cuci</h3>
-        <p class="text-xs text-gray-500 mb-3">Deterjen, sabun mandi, shampoo, pasta gigi, & pembersih lantai.</p>
-        <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded">Kemasan Hemat</span>
-      </div>
-
-      <!-- Kategori 5 -->
-      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-        <div class="text-3xl mb-3">🍿</div>
-        <h3 class="font-bold text-gray-900 mb-1">Snack & Jajanan Anak</h3>
-        <p class="text-xs text-gray-500 mb-3">Biskuit, keripik, cokelat, permen, & jajanan ringan harian.</p>
-        <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded">Favorit Keluarga</span>
-      </div>
-
-      <!-- Kategori 6 -->
-      <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-        <div class="text-3xl mb-3">💳</div>
-        <h3 class="font-bold text-gray-900 mb-1">Pulsa & Pembayaran</h3>
-        <p class="text-xs text-gray-500 mb-3">Isi ulang pulsa, kuota data, token PLN, & top up e-wallet.</p>
-        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Proses Cepat</span>
-      </div>
-
     </div>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-gray-100 py-6 text-center text-xs text-gray-500">
+  <!-- BAR MELAYANG DI BAWAH (FLOATING CART) -->
+  <div class="fixed bottom-4 left-4 right-4 max-w-md mx-auto z-30">
+    <button onclick="bukaKeranjang()" class="w-full bg-slate-900 text-white p-3.5 rounded-2xl shadow-xl flex items-center justify-between font-bold text-xs hover:bg-slate-800 transition-all">
+      <div class="flex items-center gap-2">
+        <span class="text-base">🛒</span>
+        <span id="floating-cart-count">0 Barang</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="floating-cart-total" class="text-emerald-400 font-extrabold">Rp 0</span>
+        <span class="bg-red-600 text-white px-2.5 py-1 rounded-xl text-[10px]">Lihat Keranjang →</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- POPUP MODAL KERANJANG BELANJA -->
+  <div id="cart-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex justify-center items-end sm:items-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 max-h-[85vh] flex flex-col justify-between shadow-2xl">
+      
+      <!-- Header Modal -->
+      <div class="flex justify-between items-center border-b pb-3">
+        <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+          🛒 Keranjang Belanja Anda
+        </h3>
+        <button onclick="tutupKeranjang()" class="text-slate-400 hover:text-slate-700 font-bold text-lg px-2">✕</button>
+      </div>
+
+      <!-- Item List Keranjang -->
+      <div id="cart-items" class="overflow-y-auto my-4 space-y-3 flex-1 max-h-60 pr-1">
+        <!-- Item akan dimuat otomatis via JS -->
+      </div>
+
+      <!-- Form Pengiriman & Checkout -->
+      <div class="border-t pt-3 space-y-3">
+        <div class="flex justify-between items-center font-extrabold text-sm text-slate-900">
+          <span>Total Belanja:</span>
+          <span id="cart-total-modal" class="text-red-600 text-base">Rp 0</span>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 mb-1">Nama Pembeli</label>
+          <input type="text" id="buyer-name" placeholder="Masukkan nama Anda" class="w-full text-xs p-2.5 border border-slate-200 rounded-xl focus:outline-red-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 mb-1">Alamat Pengiriman / Catatan</label>
+          <textarea id="buyer-address" rows="2" placeholder="Contoh: RT 02/01 Jogosimo, minta diantar jam 4 sore" class="w-full text-xs p-2.5 border border-slate-200 rounded-xl focus:outline-red-600"></textarea>
+        </div>
+
+        <button onclick="checkoutWA()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 rounded-xl transition-all shadow-md flex justify-center items-center gap-2">
+          💬 Pesan Sekarang via WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="py-6 text-center text-[11px] text-slate-400 border-t border-slate-100 mt-8">
     <p>© 2026 SRC Zokent Jogosimo. All Rights Reserved.</p>
   </footer>
 
+  <!-- LOGIKA KERANJANG JAVASCRIPT -->
+  <script>
+    let keranjang = [];
+    const NOMOR_WA_TOKO = "6283863000922"; // Nomor WhatsApp Toko
+
+    function tambahKeKeranjang(nama, harga) {
+      const index = keranjang.findIndex(item => item.nama === nama);
+      if (index !== -1) {
+        keranjang[index].qty += 1;
+      } else {
+        keranjang.push({ nama: nama, harga: harga, qty: 1 });
+      }
+      updateTampilan();
+    }
+
+    function ubahQty(index, delta) {
+      keranjang[index].qty += delta;
+      if (keranjang[index].qty <= 0) {
+        keranjang.splice(index, 1);
+      }
+      updateTampilan();
+    }
+
+    function updateTampilan() {
+      const container = document.getElementById('cart-items');
+      container.innerHTML = '';
+
+      let totalBarang = 0;
+      let totalHarga = 0;
+
+      if (keranjang.length === 0) {
+        container.innerHTML = '<p class="text-center text-xs text-slate-400 py-6">Keranjang Anda masih kosong.</p>';
+      } else {
+        keranjang.forEach((item, index) => {
+          totalBarang += item.qty;
+          const subtotal = item.harga * item.qty;
+          totalHarga += subtotal;
+
+          container.innerHTML += `
+            <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <div class="flex-1 pr-2">
+                <h5 class="font-bold text-xs text-slate-800 line-clamp-1">${item.nama}</h5>
+                <p class="text-[10px] text-slate-500">Rp ${item.harga.toLocaleString('id-ID')} x ${item.qty} = <strong class="text-slate-800">Rp ${subtotal.toLocaleString('id-ID')}</strong></p>
+              </div>
+              <div class="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg p-1">
+                <button onclick="ubahQty(${index}, -1)" class="w-5 h-5 bg-slate-100 text-slate-700 rounded font-bold text-xs flex items-center justify-center hover:bg-slate-200">-</button>
+                <span class="text-xs font-bold px-1.5">${item.qty}</span>
+                <button onclick="ubahQty(${index}, 1)" class="w-5 h-5 bg-slate-100 text-slate-700 rounded font-bold text-xs flex items-center justify-center hover:bg-slate-200">+</button>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      document.getElementById('cart-count').innerText = totalBarang;
+      document.getElementById('floating-cart-count').innerText = `${totalBarang} Barang`;
+      document.getElementById('floating-cart-total').innerText = `Rp ${totalHarga.toLocaleString('id-ID')}`;
+      document.getElementById('cart-total-modal').innerText = `Rp ${totalHarga.toLocaleString('id-ID')}`;
+    }
+
+    function bukaKeranjang() {
+      document.getElementById('cart-modal').classList.remove('hidden');
+    }
+    function tutupKeranjang() {
+      document.getElementById('cart-modal').classList.add('hidden');
+    }
+
+    function checkoutWA() {
+      if (keranjang.length === 0) {
+        alert("Keranjang belanja Anda masih kosong!");
+        return;
+      }
+
+      const namaPembeli = document.getElementById('buyer-name').value.trim();
+      const alamatPembeli = document.getElementById('buyer-address').value.trim();
+
+      if (!namaPembeli) {
+        alert("Silakan isi nama Anda terlebih dahulu.");
+        return;
+      }
+
+      let daftarBelanja = "";
+      let totalHarga = 0;
+
+      keranjang.forEach((item, i) => {
+        const subtotal = item.harga * item.qty;
+        totalHarga += subtotal;
+        daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
+      });
+
+      const pesanWA = `Halo *SRC Zokent*, saya mau pesan barang via Web:%0A%0A` +
+                      `👤 *Nama:* ${encodeURIComponent(namaPembeli)}%0A` +
+                      `📍 *Alamat/Catatan:* ${encodeURIComponent(alamatPembeli || '-')}%0A%0A` +
+                      `📦 *Daftar Pesanan:*%0A${daftarBelanja}%0A` +
+                      `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+
+      window.open(`https://wa.me/${NOMOR_WA_TOKO}?text=${pesanWA}`, '_blank');
+    }
+  </script>
 </body>
 </html>
