@@ -55,7 +55,7 @@
       </a>
     </div>
 
-    <!-- KATEGORI PRODUK TERSEDIA (BISA DIKLIK) -->
+    <!-- KATEGORI PRODUK TERSEDIA (DAPAT DIKLIK) -->
     <div>
       <h3 class="text-sm font-extrabold text-slate-900 mb-3">
         Kategori Produk Tersedia <span class="text-xs font-normal text-slate-500">(Klik kategori untuk melihat produk)</span>
@@ -64,7 +64,7 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
         
         <!-- Kategori 1: Sembako -->
-        <button onclick="filterKategori('sembako')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left group">
+        <button type="button" onclick="filterKategori('sembako')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left cursor-pointer group">
           <div class="text-3xl mb-2">🌾</div>
           <h4 class="font-bold text-xs text-slate-800 group-hover:text-red-600">Sembako & Beras</h4>
           <p class="text-[10px] text-slate-500 mt-0.5">Beras pulen, minyak goreng, gula, telur & tepung.</p>
@@ -72,7 +72,7 @@
         </button>
 
         <!-- Kategori 2: Minuman -->
-        <button onclick="filterKategori('minuman')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left group">
+        <button type="button" onclick="filterKategori('minuman')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left cursor-pointer group">
           <div class="text-3xl mb-2">🥤</div>
           <h4 class="font-bold text-xs text-slate-800 group-hover:text-red-600">Minuman Segar & Dingin</h4>
           <p class="text-[10px] text-slate-500 mt-0.5">Air mineral, kopi kemasan, teh manis, susu & es krim.</p>
@@ -80,7 +80,7 @@
         </button>
 
         <!-- Kategori 3: Bumbu Dapur -->
-        <button onclick="filterKategori('bumbu')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left group">
+        <button type="button" onclick="filterKategori('bumbu')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left cursor-pointer group">
           <div class="text-3xl mb-2">🧂</div>
           <h4 class="font-bold text-xs text-slate-800 group-hover:text-red-600">Bumbu Dapur & Masak</h4>
           <p class="text-[10px] text-slate-500 mt-0.5">Kecap, saus, garam, mi instan & bumbu racik.</p>
@@ -88,7 +88,7 @@
         </button>
 
         <!-- Kategori 4: Mandi & Cuci -->
-        <button onclick="filterKategori('mandi-cuci')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left group">
+        <button type="button" onclick="filterKategori('mandi-cuci')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left cursor-pointer group">
           <div class="text-3xl mb-2">🧼</div>
           <h4 class="font-bold text-xs text-slate-800 group-hover:text-red-600">Kebutuhan Mandi & Cuci</h4>
           <p class="text-[10px] text-slate-500 mt-0.5">Deterjen, sabun mandi, shampoo, pasta gigi & pembersih.</p>
@@ -96,7 +96,7 @@
         </button>
 
         <!-- Kategori 5: Snack -->
-        <button onclick="filterKategori('snack')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left group">
+        <button type="button" onclick="filterKategori('snack')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left cursor-pointer group">
           <div class="text-3xl mb-2">🍿</div>
           <h4 class="font-bold text-xs text-slate-800 group-hover:text-red-600">Snack & Jajanan Anak</h4>
           <p class="text-[10px] text-slate-500 mt-0.5">Biskuit, keripik, cokelat, permen & makanan ringan.</p>
@@ -104,7 +104,7 @@
         </button>
 
         <!-- Kategori 6: Pulsa -->
-        <button onclick="filterKategori('pulsa')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left group">
+        <button type="button" onclick="filterKategori('pulsa')" class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all text-left cursor-pointer group">
           <div class="text-3xl mb-2">💳</div>
           <h4 class="font-bold text-xs text-slate-800 group-hover:text-red-600">Pulsa & Pembayaran</h4>
           <p class="text-[10px] text-slate-500 mt-0.5">Isi ulang pulsa, kuota data, token PLN & top up e-wallet.</p>
@@ -123,13 +123,13 @@
 
         <!-- TOMBOL PILL FILTER KATALOG -->
         <div class="flex flex-wrap gap-1.5 text-[10px] font-bold">
-          <button onclick="filterKategori('semua')" class="btn-kat active bg-red-600 text-white px-2.5 py-1 rounded-xl" data-target="semua">Semua</button>
-          <button onclick="filterKategori('sembako')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="sembako">Sembako</button>
-          <button onclick="filterKategori('minuman')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="minuman">Minuman</button>
-          <button onclick="filterKategori('bumbu')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="bumbu">Bumbu</button>
-          <button onclick="filterKategori('mandi-cuci')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="mandi-cuci">Mandi & Cuci</button>
-          <button onclick="filterKategori('snack')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="snack">Snack</button>
-          <button onclick="filterKategori('pulsa')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="pulsa">Pulsa</button>
+          <button type="button" onclick="filterKategori('semua')" class="btn-kat bg-red-600 text-white px-2.5 py-1 rounded-xl" data-target="semua">Semua</button>
+          <button type="button" onclick="filterKategori('sembako')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="sembako">Sembako</button>
+          <button type="button" onclick="filterKategori('minuman')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="minuman">Minuman</button>
+          <button type="button" onclick="filterKategori('bumbu')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="bumbu">Bumbu</button>
+          <button type="button" onclick="filterKategori('mandi-cuci')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="mandi-cuci">Mandi & Cuci</button>
+          <button type="button" onclick="filterKategori('snack')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="snack">Snack</button>
+          <button type="button" onclick="filterKategori('pulsa')" class="btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl" data-target="pulsa">Pulsa</button>
         </div>
       </div>
 
@@ -144,7 +144,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Beras Premium (5 kg)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 72.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Beras Premium (5 kg)', 72000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Beras Premium (5 kg)', 72000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <div class="product-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-kategori="sembako">
@@ -154,7 +154,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Minyak Goreng Kita (1L)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 16.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Minyak Goreng Kita (1L)', 16000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Minyak Goreng Kita (1L)', 16000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <div class="product-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-kategori="sembako">
@@ -164,7 +164,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Telur Ayam Negeri (1 kg)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 28.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Telur Ayam Negeri (1 kg)', 28000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Telur Ayam Negeri (1 kg)', 28000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <!-- PRODUK MINUMAN -->
@@ -175,7 +175,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Air Mineral Botol (600ml)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 5.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Air Mineral Botol (600ml)', 5000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Air Mineral Botol (600ml)', 5000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <div class="product-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-kategori="minuman">
@@ -185,7 +185,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Teh Pucuk Harum (350ml)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 4.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Teh Pucuk Harum (350ml)', 4000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Teh Pucuk Harum (350ml)', 4000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <!-- PRODUK BUMBU -->
@@ -196,7 +196,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Gula Pasir Gulaku (1 kg)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 18.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Gula Pasir Gulaku (1 kg)', 18000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Gula Pasir Gulaku (1 kg)', 18000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <div class="product-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between" data-kategori="bumbu">
@@ -206,7 +206,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Indomie Goreng (1 Dus)</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 112.000</p>
           </div>
-          <button onclick="tambahKeKeranjang('Indomie Goreng (1 Dus)', 112000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Indomie Goreng (1 Dus)', 112000)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <!-- PRODUK MANDI & CUCI -->
@@ -217,7 +217,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Deterjen Rinso Molto 770g</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 22.500</p>
           </div>
-          <button onclick="tambahKeKeranjang('Deterjen Rinso Molto 770g', 22500)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Deterjen Rinso Molto 770g', 22500)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <!-- PRODUK SNACK -->
@@ -228,7 +228,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Biskuit Roma Kelapa 300g</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 10.500</p>
           </div>
-          <button onclick="tambahKeKeranjang('Biskuit Roma Kelapa 300g', 10500)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Biskuit Roma Kelapa 300g', 10500)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
         <!-- PRODUK PULSA -->
@@ -239,7 +239,7 @@
             <h4 class="font-bold text-xs text-slate-800 mt-1 line-clamp-2">Token PLN Listrik 50rb</h4>
             <p class="text-red-600 font-extrabold text-xs mt-0.5">Rp 51.500</p>
           </div>
-          <button onclick="tambahKeKeranjang('Token PLN Listrik 50rb', 51500)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
+          <button type="button" onclick="tambahKeKeranjang('Token PLN Listrik 50rb', 51500)" class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl transition-all shadow-sm">+ Keranjang</button>
         </div>
 
       </div>
@@ -249,7 +249,7 @@
 
   <!-- BAR MELAYANG DI BAWAH (FLOATING CART) -->
   <div class="fixed bottom-4 left-4 right-4 max-w-md mx-auto z-30">
-    <button onclick="bukaKeranjang()" class="w-full bg-slate-900 text-white p-3.5 rounded-2xl shadow-xl flex items-center justify-between font-bold text-xs hover:bg-slate-800 transition-all">
+    <button type="button" onclick="bukaKeranjang()" class="w-full bg-slate-900 text-white p-3.5 rounded-2xl shadow-xl flex items-center justify-between font-bold text-xs hover:bg-slate-800 transition-all cursor-pointer">
       <div class="flex items-center gap-2">
         <span class="text-base">🛒</span>
         <span id="floating-cart-count">0 Barang</span>
@@ -270,7 +270,7 @@
         <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
           🛒 Keranjang Belanja Anda
         </h3>
-        <button onclick="tutupKeranjang()" class="text-slate-400 hover:text-slate-700 font-bold text-lg px-2">✕</button>
+        <button type="button" onclick="tutupKeranjang()" class="text-slate-400 hover:text-slate-700 font-bold text-lg px-2 cursor-pointer">✕</button>
       </div>
 
       <!-- Item List Keranjang -->
@@ -292,4 +292,165 @@
 
         <div>
           <label class="block text-[11px] font-bold text-slate-700 mb-1">Alamat Pengiriman / Catatan</label>
-          <textarea id="buyer-address" rows="2" placeholder="Contoh: RT 02/01 Jogosimo, diantar sore jam 4" class="w-full text-xs p-2.5 border border-slate-200 rounded-xl fo
+          <textarea id="buyer-address" rows="2" placeholder="Contoh: RT 02/01 Jogosimo, diantar sore jam 4" class="w-full text-xs p-2.5 border border-slate-200 rounded-xl focus:outline-red-600"></textarea>
+        </div>
+
+        <button type="button" onclick="checkoutWA()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 rounded-xl transition-all shadow-md flex justify-center items-center gap-2 cursor-pointer">
+          💬 Pesan Sekarang via WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="py-6 text-center text-[11px] text-slate-400 border-t border-slate-100 mt-8">
+    <p>© 2026 SRC Zokent Jogosimo. All Rights Reserved.</p>
+  </footer>
+
+  <!-- LOGIKA JAVASCRIPT -->
+  <script>
+    let keranjang = [];
+    const NOMOR_WA_TOKO = "6283863000922"; // Nomor WA Toko
+
+    // 1. FILTER KATEGORI PRODUK
+    function filterKategori(kat) {
+      const items = document.querySelectorAll('.product-item');
+      const buttons = document.querySelectorAll('.btn-kat');
+      const judul = document.getElementById('judul-kategori');
+
+      const namaKategori = {
+        'semua': '📦 Semua Produk Tersedia',
+        'sembako': '🌾 Produk Sembako & Beras',
+        'minuman': '🥤 Minuman Segar & Dingin',
+        'bumbu': '🧂 Bumbu Dapur & Masak',
+        'mandi-cuci': '🧼 Kebutuhan Mandi & Cuci',
+        'snack': '🍿 Snack & Jajanan Anak',
+        'pulsa': '💳 Pulsa & Pembayaran'
+      };
+
+      if (judul) {
+        judul.innerText = namaKategori[kat] || '📦 Produk Tersedia';
+      }
+
+      // Filter Item
+      items.forEach(item => {
+        if (kat === 'semua' || item.getAttribute('data-kategori') === kat) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Update warna tombol filter kecil
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-target') === kat) {
+          btn.className = 'btn-kat bg-red-600 text-white px-2.5 py-1 rounded-xl cursor-pointer';
+        } else {
+          btn.className = 'btn-kat bg-slate-100 text-slate-600 hover:bg-slate-200 px-2.5 py-1 rounded-xl cursor-pointer';
+        }
+      });
+
+      // Scroll halus ke daftar produk
+      const targetEl = document.getElementById('katalog-produk');
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 2. KERANJANG BELANJA
+    function tambahKeKeranjang(nama, harga) {
+      const index = keranjang.findIndex(item => item.nama === nama);
+      if (index !== -1) {
+        keranjang[index].qty += 1;
+      } else {
+        keranjang.push({ nama: nama, harga: harga, qty: 1 });
+      }
+      updateTampilan();
+    }
+
+    function ubahQty(index, delta) {
+      keranjang[index].qty += delta;
+      if (keranjang[index].qty <= 0) {
+        keranjang.splice(index, 1);
+      }
+      updateTampilan();
+    }
+
+    function updateTampilan() {
+      const container = document.getElementById('cart-items');
+      container.innerHTML = '';
+
+      let totalBarang = 0;
+      let totalHarga = 0;
+
+      if (keranjang.length === 0) {
+        container.innerHTML = '<p class="text-center text-xs text-slate-400 py-6">Keranjang Anda masih kosong.</p>';
+      } else {
+        keranjang.forEach((item, index) => {
+          totalBarang += item.qty;
+          const subtotal = item.harga * item.qty;
+          totalHarga += subtotal;
+
+          container.innerHTML += `
+            <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <div class="flex-1 pr-2">
+                <h5 class="font-bold text-xs text-slate-800 line-clamp-1">${item.nama}</h5>
+                <p class="text-[10px] text-slate-500">Rp ${item.harga.toLocaleString('id-ID')} x ${item.qty} = <strong class="text-slate-800">Rp ${subtotal.toLocaleString('id-ID')}</strong></p>
+              </div>
+              <div class="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg p-1">
+                <button type="button" onclick="ubahQty(${index}, -1)" class="w-5 h-5 bg-slate-100 text-slate-700 rounded font-bold text-xs flex items-center justify-center hover:bg-slate-200 cursor-pointer">-</button>
+                <span class="text-xs font-bold px-1.5">${item.qty}</span>
+                <button type="button" onclick="ubahQty(${index}, 1)" class="w-5 h-5 bg-slate-100 text-slate-700 rounded font-bold text-xs flex items-center justify-center hover:bg-slate-200 cursor-pointer">+</button>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      document.getElementById('cart-count').innerText = totalBarang;
+      document.getElementById('floating-cart-count').innerText = `${totalBarang} Barang`;
+      document.getElementById('floating-cart-total').innerText = `Rp ${totalHarga.toLocaleString('id-ID')}`;
+      document.getElementById('cart-total-modal').innerText = `Rp ${totalHarga.toLocaleString('id-ID')}`;
+    }
+
+    function bukaKeranjang() {
+      document.getElementById('cart-modal').classList.remove('hidden');
+    }
+    function tutupKeranjang() {
+      document.getElementById('cart-modal').classList.add('hidden');
+    }
+
+    function checkoutWA() {
+      if (keranjang.length === 0) {
+        alert("Keranjang belanja Anda masih kosong!");
+        return;
+      }
+
+      const namaPembeli = document.getElementById('buyer-name').value.trim();
+      const alamatPembeli = document.getElementById('buyer-address').value.trim();
+
+      if (!namaPembeli) {
+        alert("Silakan isi nama Anda terlebih dahulu.");
+        return;
+      }
+
+      let daftarBelanja = "";
+      let totalHarga = 0;
+
+      keranjang.forEach((item, i) => {
+        const subtotal = item.harga * item.qty;
+        totalHarga += subtotal;
+        daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
+      });
+
+      const pesanWA = `Halo *SRC Zokent*, saya mau pesan barang via Web:%0A%0A` +
+                      `👤 *Nama:* ${encodeURIComponent(namaPembeli)}%0A` +
+                      `📍 *Alamat/Catatan:* ${encodeURIComponent(alamatPembeli || '-')}%0A%0A` +
+                      `📦 *Daftar Pesanan:*%0A${daftarBelanja}%0A` +
+                      `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+
+      window.open(`https://wa.me/${NOMOR_WA_TOKO}?text=${pesanWA}`, '_blank');
+    }
+  </script>
+</body>
+</html>
