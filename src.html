@@ -18,18 +18,59 @@
     </div>
   </header>
 
-    <!-- BANNER TOKO SRC (Gaya Khas SRC: Gradient, Akses Kuning & Badge Brand) -->
-  <section class="relative bg-gradient-to-r from-red-700 via-red-600 to-red-800 text-white py-12 px-4 shadow-md overflow-hidden">
-    <!-- Ornamen Latar Belakang -->
-    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
-    <div class="absolute -left-10 -top-10 w-40 h-40 bg-yellow-400/10 rounded-full blur-xl pointer-events-none"></div>
+      <!-- BANNER TOKO SRC (Teks Tetap, Background Motif SRC) -->
+  <section class="relative bg-red-600 text-white py-12 px-4 shadow-md overflow-hidden">
+    
+    <!-- Motif Anyaman SRC Sisi Kiri -->
+    <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 pointer-events-none opacity-85">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="src-motif-left" width="28" height="28" patternUnits="userSpaceOnUse">
+            <rect width="28" height="28" fill="#dc2626"/>
+            <path d="M0 14 L14 0 L28 14 L14 28 Z" fill="none" stroke="#ffffff" stroke-width="4"/>
+            <path d="M14 14 L28 0 M0 28 L14 14" stroke="#ffffff" stroke-width="4"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#src-motif-left)"/>
+      </svg>
+    </div>
 
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <!-- Badge Ciri Khas SRC -->
+    <!-- Motif Anyaman SRC Sisi Kanan -->
+    <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 pointer-events-none opacity-85">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="src-motif-right" width="28" height="28" patternUnits="userSpaceOnUse">
+            <rect width="28" height="28" fill="#dc2626"/>
+            <path d="M0 14 L14 0 L28 14 L14 28 Z" fill="none" stroke="#ffffff" stroke-width="4"/>
+            <path d="M14 14 L28 0 M0 28 L14 14" stroke="#ffffff" stroke-width="4"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#src-motif-right)"/>
+      </svg>
+    </div>
+
+    <!-- Isi Teks (Persis Sama Seperti Tampilan Kamu) -->
+    <div class="max-w-4xl mx-auto text-center relative z-10 px-8 sm:px-16">
+      
+      <!-- Badge Kuning -->
       <div class="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 text-xs font-extrabold uppercase px-3.5 py-1.5 rounded-full shadow-sm mb-3">
         <span>🏪</span>
         <span>MITRA SRC • TOKO KELONTONG MODERN</span>
       </div>
+
+      <!-- Judul -->
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-1 mb-2">
+        SRC Zokent Jogosimo
+      </h1>
+
+      <!-- Deskripsi -->
+      <p class="text-red-100 text-sm md:text-base max-w-xl mx-auto font-medium">
+        Belanja sembako & kebutuhan harian dekat, lengkap, dan hemat. Menerima pembayaran <span class="text-yellow-300 font-bold">Tunai (Cash)</span> & <span class="text-yellow-300 font-bold">QRIS</span>.
+      </p>
+
+    </div>
+  </section>
+  
 
       <!-- Judul Toko -->
       <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-1 mb-2">
