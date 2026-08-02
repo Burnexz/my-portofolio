@@ -635,13 +635,15 @@
         daftarBelanja += `${i + 1}. *${item.nama}* (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}%0A`;
       });
 
-      const pesanWA = `Halo *SRC Zokent*, saya mau pesan barang via Web:%0A%0A` +
-                      `👤 *Nama:* ${encodeURIComponent(namaPembeli)}%0A` +
-                      `📍 *Alamat/Catatan:* ${encodeURIComponent(alamatPembeli || '-')}%0A%0A` +
-                      `📦 *Daftar Pesanan:*%0A${daftarBelanja}%0A` +
-                      `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
+          let teksPesan = `Halo *SRC Zokent*, saya mau pesan barang via Online:\n\n` +
+                    `👤 *Nama:* ${namaPembeli}\n` +
+                    `📍 *Alamat/Catatan:* ${alamatPembeli || '-'}\n` +
+                    `📦 *Daftar Pesanan:*%0A${daftarBelanja}\n` +
+                    `💰 *Total Belanja:* *Rp ${totalHarga.toLocaleString('id-ID')}*`;
 
-      window.open(`https://wa.me/${NOMOR_WA_TOKO}?text=${pesanWA}`, '_blank');
+    let pesanWA = encodeURIComponent(teksPesan);
+    window.open(`https://wa.me/6283863000922?text=${pesanWA}`, '_blank');
+      
     }// Fungsi untuk mengubah warna border input secara dinamis
 function setupInputValidation(id) {
     const el = document.getElementById(id);
