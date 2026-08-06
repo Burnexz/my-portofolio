@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Tambah Produk</title>
+    <!-- Tailwind CSS untuk Desain Responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 md:p-6">
+    <div class="max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Panel Admin Produk</h2>
+            <a href="src.html" class="text-sm text-blue-600 hover:underline">← Lihat Website</a>
+        </div>
+        
+        <!-- Formulir Tambah Produk -->
+        <form id="productForm" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Nama Produk / Jasa</label>
+                <input type="text" id="productName" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Servis AC 1 PK">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Harga (Rp)</label>
+                <input type="number" id="productPrice" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: 150000">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Kategori</label>
+                <input type="text" id="productCategory" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Elektronik atau Motor">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Link Gambar (URL)</label>
+                <input type="url" id="productImage" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://example.com/gambar.jpg">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg font-medium hover:bg-blue-700 transition">Simpan Produk</button>
+        </form>
+        
+        <div id="statusMessage" class="mt-4 text-center text-sm font-medium"></div>
+    </div>
+
+    <!-- Skrip JavaScript Sementara -->
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('productName').value;
+            const price = document.getElementById('productPrice').value;
+            const category = document.getElementById('productCategory').value;
+            const image = document.getElementById('productImage').value;
+            
+            // Simulasi respon berhasil
+            const status = document.getElementById('statusMessage');
+            status.textContent = `Sukses! Produk "${name}" berhasil disiapkan.`;
+            status.className = "mt-4 text-center text-sm font-medium text-green-600";
+            
+            // Reset form setelah disubmit
+            document.getElementById('productForm').reset();
+        });
+    </script>
+</body>
+</html>
