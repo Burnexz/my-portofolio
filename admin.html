@@ -3,38 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin - Kasir</title>
+    <title>Panel Admin - Tambah Produk</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-
-        const firebaseConfig = {
-            // Isi dengan kode Firebase Anda di sini
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        window.saveProduct = async () => {
-            const nama = document.getElementById('nama').value;
-            const harga = document.getElementById('harga').value;
-            try {
-                await addDoc(collection(db, "products"), { nama, harga });
-                alert("Produk berhasil disimpan!");
-            } catch (e) {
-                alert("Gagal: " + e.message);
-            }
-        };
-    </script>
 </head>
-<body class="bg-gray-100 p-5">
-    <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
-        <h1 class="text-xl font-bold mb-4">Input Stok Barang</h1>
-        <input id="nama" type="text" placeholder="Nama Produk" class="w-full border p-2 mb-2">
-        <input id="harga" type="number" placeholder="Harga" class="w-full border p-2 mb-2">
-        <button onclick="saveProduct()" class="w-full bg-blue-500 text-white p-2 rounded">Simpan Produk</button>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">Panel Admin - Tambah Produk</h2>
+        <form id="productForm" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Nama Produk / Jasa</label>
+                <input type="text" id="productName" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Harga (Angka saja)</label>
+                <input type="number" id="productPrice" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Kategori</label>
+                <input type="text" id="productCategory" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Link Gambar / Foto</label>
+                <input type="text" id="productImage" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition">Simpan Produk</button>
+        </form>
     </div>
 </body>
 </html>
