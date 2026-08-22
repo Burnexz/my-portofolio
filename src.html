@@ -536,11 +536,11 @@ function toggleQris() {
                 </div>
 
                 <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">
-                    ${p.category || 'Produk'}
+                    ${p.category || p.kategori || 'Produk' }
                 </span>
 
                 <h4 class="font-bold text-xs text-slate-800 mt-1">
-                    ${p.name}
+                    ${p.name || p.nama || 'Produk'}
                 </h4>
 
                 <p class="text-red-600 font-extrabold text-xs mt-0.5">
