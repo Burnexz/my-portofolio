@@ -689,6 +689,42 @@ function toggleQris() {
   </script><div id="product-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <!-- Produk akan muncul di sini secara otomatis -->
 </div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Konfigurasi Database Anda
+    const firebaseConfig = {
+        apiKey: "ISI_API_KEY_ANDA",
+        authDomain: "my-portofolio-db-2835c.firebaseapp.com",
+        projectId: "my-portofolio-db-2835c",
+        storageBucket: "my-portofolio-db-2835c.appspot.com",
+        messagingSenderId: "420644334513",
+        appId: "1:420644334513:web:4f664fdead2dacbd5d6b90"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function loadProducts() {
+        const container = document.getElementById('product-container');
+        const querySnapshot = await getDocs(collection(db, "products"));
+        
+        container.innerHTML = ""; // Bersihkan tampilan lama
+
+        querySnapshot.forEach((doc) => {
+            const p = doc.data();
+            // Desain produk di bawah ini akan mengikuti tampilan yang Anda buat
+            container.innerHTML += `
+                <div class="product-card">
+                    <h3>${p.name}</h3>
+                    <p>Rp ${p.price}</p>
+                </div>
+            `;
+        });
+    }
+    loadProducts();
+</script>
 
 </body>
 </html>
