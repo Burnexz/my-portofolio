@@ -527,8 +527,15 @@ function toggleQris() {
         querySnapshot.forEach((doc) => {
     const p = doc.data();
 
+    const kategori = (p.category || '').toLowerCase().trim();
+    const nama = p.name || 'Produk';
+    const harga = Number(p.price || 0);
+
     container.innerHTML += `
-        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+        <div 
+            class="product-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between"
+            data-kategori="${kategori}"
+        >
             
             <div>
                 <div class="w-full h-24 bg-red-50 rounded-xl mb-2 flex items-center justify-center text-3xl">
@@ -536,21 +543,21 @@ function toggleQris() {
                 </div>
 
                 <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">
-                    ${p.category || p.kategori || 'Produk' }
+                    ${p.category || 'Produk'}
                 </span>
 
                 <h4 class="font-bold text-xs text-slate-800 mt-1">
-                    ${p.name || p.nama || 'Produk'}
+                    ${nama}
                 </h4>
 
                 <p class="text-red-600 font-extrabold text-xs mt-0.5">
-                    Rp ${Number(p.price).toLocaleString('id-ID')}
+                    Rp ${harga.toLocaleString('id-ID')}
                 </p>
             </div>
 
             <button 
                 type="button"
-                onclick="tambahKeKeranjang('${p.name}', ${Number(p.price)})"
+                onclick="tambahKeKeranjang('${nama}', ${harga})"
                 class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl">
                 + Keranjang
             </button>
