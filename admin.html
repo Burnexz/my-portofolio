@@ -3,31 +3,667 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin - Tambah Produk</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Admin - Zokent Group</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* HEADER */
+        .header {
+            background: #111827;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .admin-name {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* CONTAINER */
+        .container {
+            padding: 18px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* JUDUL */
+        .title {
+            margin-bottom: 18px;
+        }
+
+        .title h1 {
+            font-size: 25px;
+        }
+
+        .title p {
+            color: #6b7280;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        /* PILIH BISNIS */
+        .business-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .business-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            transition: 0.2s;
+        }
+
+        .business-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .business-card.active {
+            border-color: #111827;
+        }
+
+        .business-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .business-card h3 {
+            font-size: 17px;
+        }
+
+        .business-card p {
+            color: #777;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* STATISTIK */
+        .section {
+            margin-top: 25px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+        .stat-icon {
+            font-size: 25px;
+        }
+
+        .stat-card h3 {
+            margin-top: 10px;
+            font-size: 22px;
+        }
+
+        .stat-card p {
+            color: #777;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        /* MENU */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 18px;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            transition: 0.2s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .menu-card h3 {
+            font-size: 15px;
+        }
+
+        .menu-card p {
+            color: #777;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        /* BISNIS AKTIF */
+        .active-business {
+            margin-top: 20px;
+            background: #111827;
+            color: white;
+            padding: 15px;
+            border-radius: 14px;
+        }
+
+        .active-business span {
+            opacity: 0.7;
+            font-size: 12px;
+        }
+
+        .active-business strong {
+            display: block;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+
+        /* RESPONSIVE HP */
+        @media (max-width: 700px) {
+
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .container {
+                padding: 14px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">Panel Admin - Tambah Produk</h2>
-        <form id="productForm" class="space-y-4">
-            <div>
-                <label class="block text-gray-700 font-medium mb-1">Nama Produk / Jasa</label>
-                <input type="text" id="productName" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div>
+            <div class="brand">ZOKENT GROUP</div>
+            <div class="admin-name">Admin Panel</div>
+        </div>
+
+        <div>
+            👤 Admin
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- JUDUL -->
+        <div class="title">
+
+            <h1>Dashboard</h1>
+
+            <p>
+                Kelola seluruh bisnis Zokent Group
+            </p>
+
+        </div>
+
+
+        <!-- PILIH BISNIS -->
+
+        <div class="business-title">
+            Pilih Bisnis
+        </div>
+
+        <div class="business-grid">
+
+            <!-- SRC ZOKENT -->
+
+            <div
+                class="business-card active"
+                onclick="pilihBisnis('SRC Zokent')"
+            >
+
+                <div class="business-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    SRC Zokent
+                </h3>
+
+                <p>
+                    Toko Kelontong
+                </p>
+
             </div>
-            <div>
-                <label class="block text-gray-700 font-medium mb-1">Harga (Angka saja)</label>
-                <input type="number" id="productPrice" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+
+            <!-- ZOKENT MOTOR -->
+
+            <div
+                class="business-card"
+                onclick="pilihBisnis('Zokent Motor')"
+            >
+
+                <div class="business-icon">
+                    🏍️
+                </div>
+
+                <h3>
+                    Zokent Motor
+                </h3>
+
+                <p>
+                    Motor & Sparepart
+                </p>
+
             </div>
-            <div>
-                <label class="block text-gray-700 font-medium mb-1">Kategori</label>
-                <input type="text" id="productCategory" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+
+            <!-- ZOKENT COOLING -->
+
+            <div
+                class="business-card"
+                onclick="pilihBisnis('Zokent Cooling')"
+            >
+
+                <div class="business-icon">
+                    ❄️
+                </div>
+
+                <h3>
+                    Zokent Cooling
+                </h3>
+
+                <p>
+                    AC & Cooling
+                </p>
+
             </div>
-            <div>
-                <label class="block text-gray-700 font-medium mb-1">Link Gambar / Foto</label>
-                <input type="text" id="productImage" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+        </div>
+
+
+        <!-- BISNIS AKTIF -->
+
+        <div class="active-business">
+
+            <span>
+                Bisnis yang sedang dikelola
+            </span>
+
+            <strong id="bisnisAktif">
+                SRC Zokent
+            </strong>
+
+        </div>
+
+
+        <!-- STATISTIK -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Ringkasan
             </div>
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition">Simpan Produk</button>
-        </form>
-    </div>
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <h3 id="jumlahProduk">
+                        0
+                    </h3>
+
+                    <p>
+                        Produk
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🛒
+                    </div>
+
+                    <h3 id="jumlahPesanan">
+                        0
+                    </h3>
+
+                    <p>
+                        Pesanan
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <h3 id="jumlahPelanggan">
+                        0
+                    </h3>
+
+                    <p>
+                        Pelanggan
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💰
+                    </div>
+
+                    <h3 id="omzet">
+                        Rp0
+                    </h3>
+
+                    <p>
+                        Penjualan
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU ADMIN -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Kelola Bisnis
+            </div>
+
+
+            <div class="menu-grid">
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Produk')"
+                >
+
+                    <div class="menu-icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        Produk
+                    </h3>
+
+                    <p>
+                        Tambah & edit produk
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Pesanan')"
+                >
+
+                    <div class="menu-icon">
+                        🛒
+                    </div>
+
+                    <h3>
+                        Pesanan
+                    </h3>
+
+                    <p>
+                        Kelola pesanan pelanggan
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Kategori')"
+                >
+
+                    <div class="menu-icon">
+                        🏷️
+                    </div>
+
+                    <h3>
+                        Kategori
+                    </h3>
+
+                    <p>
+                        Kelola kategori
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Pelanggan')"
+                >
+
+                    <div class="menu-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Pelanggan
+                    </h3>
+
+                    <p>
+                        Data pelanggan
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Promo')"
+                >
+
+                    <div class="menu-icon">
+                        🎟️
+                    </div>
+
+                    <h3>
+                        Promo
+                    </h3>
+
+                    <p>
+                        Diskon & promo
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Laporan')"
+                >
+
+                    <div class="menu-icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        Laporan
+                    </h3>
+
+                    <p>
+                        Laporan penjualan
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="menuKlik('Pengaturan')"
+                >
+
+                    <div class="menu-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Pengaturan
+                    </h3>
+
+                    <p>
+                        Pengaturan toko
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="menu-card"
+                    onclick="logout()"
+                >
+
+                    <div class="menu-icon">
+                        🚪
+                    </div>
+
+                    <h3>
+                        Keluar
+                    </h3>
+
+                    <p>
+                        Keluar dari admin
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        let bisnisSekarang = "SRC Zokent";
+
+
+        function pilihBisnis(namaBisnis) {
+
+            bisnisSekarang = namaBisnis;
+
+            document.getElementById("bisnisAktif").textContent =
+                namaBisnis;
+
+
+            const cards =
+                document.querySelectorAll(".business-card");
+
+
+            cards.forEach(function(card) {
+
+                card.classList.remove("active");
+
+            });
+
+
+            event.currentTarget.classList.add("active");
+
+
+            console.log(
+                "Bisnis aktif:",
+                bisnisSekarang
+            );
+
+        }
+
+
+        function menuKlik(menu) {
+
+            alert(
+                menu +
+                " untuk " +
+                bisnisSekarang +
+                " akan kita buat selanjutnya."
+            );
+
+        }
+
+
+        function logout() {
+
+            alert(
+                "Fitur logout akan kita hubungkan ke Firebase Authentication."
+            );
+
+        }
+
+    </script>
+
 </body>
 </html>
