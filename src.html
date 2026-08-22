@@ -487,15 +487,39 @@ function toggleQris() {
         container.innerHTML = ""; // Bersihkan tampilan lama
 
         querySnapshot.forEach((doc) => {
-            const p = doc.data();
-            // Desain produk di bawah ini akan mengikuti tampilan yang Anda buat
-            container.innerHTML += `
-                <div class="product-card">
-                    <h3>${p.name}</h3>
-                    <p>Rp ${p.price}</p>
+    const p = doc.data();
+
+    container.innerHTML += `
+        <div class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
+            
+            <div>
+                <div class="w-full h-24 bg-red-50 rounded-xl mb-2 flex items-center justify-center text-3xl">
+                    🛒
                 </div>
-            `;
-        });
+
+                <span class="text-[9px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">
+                    ${p.category || 'Produk'}
+                </span>
+
+                <h4 class="font-bold text-xs text-slate-800 mt-1">
+                    ${p.name}
+                </h4>
+
+                <p class="text-red-600 font-extrabold text-xs mt-0.5">
+                    Rp ${Number(p.price).toLocaleString('id-ID')}
+                </p>
+            </div>
+
+            <button 
+                type="button"
+                onclick="tambahKeKeranjang('${p.name}', ${Number(p.price)})"
+                class="w-full mt-3 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] py-1.5 rounded-xl">
+                + Keranjang
+            </button>
+
+        </div>
+    `;
+});
     }
     loadProducts();
 </script>
